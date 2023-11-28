@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+
+    <style>
+
+    html, body {
+            height: 100%;
+    }
+
+  body {
+    font-family: sans-serif;
+    font-size: 18px;
+    background-color: #fdfdfd;
+    display: flex;
+    flex-direction: column;
+  }
+
+  #nofooter {
+        flex: 1 0 auto;
+  }
+
+
+  #foot {
+    flex-shrink: 0;
+    font-family: sans-serif;
+    background-color: darkgrey; color: #00308F;
+    bottom: 0;
+    width: 100%;
+  }
+    h5 {
+        padding-top: 15px;
+    }
+    </style>
+
+    {% block metatags %}
+          <!-- will be replaced with meta content -->
+    {% endblock %}
+</head>
+<body>
+    <div id="bodydiv">
+        <div id="nofooter">
+            <nav class="navbar navbar-expand-lg navbar-light bg-light shadow" id="topnav">
+                <div class="container-fluid">
+                    <a class="navbar-brand" href="{% url 'home' %}"></a>
+                    <div class="nav justify-content-end">
+                        <div class="d-inline"><a class="nav-link text-black font-weight-bold" href="{% url 'posts'%}">Posts</a></div>
+                    </div>
+                </div>
+            </nav>
+            {% block content %}
+                <!-- will be replaced with post content -->
+            {% endblock %}
+        </div>
+        <footer class="footer" id="foot">
+            <div class="container"><h5 style="text-align:center;"><i>Keeping you informed <small>&#62; &#62;</small></i></h5>
+                <nav class="navbar navbar-expand-lg">
+                    <div class="container-fluid">
+                        <small><p>Copyright &copy; SerahCMS</p></small>
+                        <div class="nav justify-content-center" id="navfooter">
+                        <span><a class="nav-link text-black font-weight-bold" href="#">About</a></span>
+                        <span><a class="nav-link text-black font-weight-bold" href="#">Overview</a></span>
+                        <span><a class="nav-link text-black font-weight-bold" href="#">FAQ</a></span>
+                        <span><a class="nav-link text-black font-weight-bold" href="#">Contact</a></span>
+                    </div>
+                    </div>
+                </nav>
+            </div>
+        </footer>
+    </div>
+</body>
+</html>
