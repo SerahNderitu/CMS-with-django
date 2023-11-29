@@ -27,3 +27,17 @@ class Posts(models.Model):
         return self.title
 
 
+class ContactUs(models.Model):
+    name = models.CharField(max_length=255)
+    email = models.EmailField()
+    message = models.TextField()
+    created_at = models.DateTimeField(auto_now_add=True)
+
+    class Meta:
+        ordering = ["-created_at"]
+        verbose_name_plural = 'Messages'
+
+    def __str__(self):
+        return '{} ({})'.format(self.name, self.email)
+
+
